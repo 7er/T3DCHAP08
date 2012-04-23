@@ -24,7 +24,6 @@ EXES                  = demo8_1.exe \
 			demo8_8.exe \
 			demo8_9.exe \
 			t3dconsole.exe \
-			t3dconsole2.exe
 
 
 
@@ -461,31 +460,6 @@ t3dconsole_exe_OBJS   = $(t3dconsole_exe_C_SRCS:.c=.o) \
 
 
 
-### t3dconsole2.exe sources and settings
-
-t3dconsole2_exe_MODULE= t3dconsole2.exe
-t3dconsole2_exe_C_SRCS=
-t3dconsole2_exe_CXX_SRCS= t3dconsole2.cpp
-t3dconsole2_exe_RC_SRCS=
-t3dconsole2_exe_LDFLAGS= -mwindows \
-			-mno-cygwin \
-			-m32
-t3dconsole2_exe_ARFLAGS=
-t3dconsole2_exe_DLL_PATH=
-t3dconsole2_exe_DLLS  = odbc32 \
-			ole32 \
-			oleaut32 \
-			winspool \
-			odbccp32
-t3dconsole2_exe_LIBRARY_PATH=
-t3dconsole2_exe_LIBRARIES= uuid
-
-t3dconsole2_exe_OBJS  = $(t3dconsole2_exe_C_SRCS:.c=.o) \
-			$(t3dconsole2_exe_CXX_SRCS:.cpp=.o) \
-			$(t3dconsole2_exe_RC_SRCS:.rc=.res)
-
-
-
 ### Global source lists
 
 C_SRCS                = $(demo8_1_exe_C_SRCS) \
@@ -504,7 +478,6 @@ C_SRCS                = $(demo8_1_exe_C_SRCS) \
 			$(demo8_8_exe_C_SRCS) \
 			$(demo8_9_exe_C_SRCS) \
 			$(t3dconsole_exe_C_SRCS) \
-			$(t3dconsole2_exe_C_SRCS) \
 			$(EXTRA_C_SRCS)
 CXX_SRCS              = $(demo8_1_exe_CXX_SRCS) \
 			$(demo8_10_exe_CXX_SRCS) \
@@ -522,7 +495,6 @@ CXX_SRCS              = $(demo8_1_exe_CXX_SRCS) \
 			$(demo8_8_exe_CXX_SRCS) \
 			$(demo8_9_exe_CXX_SRCS) \
 			$(t3dconsole_exe_CXX_SRCS) \
-			$(t3dconsole2_exe_CXX_SRCS) \
 			$(EXTRA_CXX_SRCS)
 RC_SRCS               = $(demo8_1_exe_RC_SRCS) \
 			$(demo8_10_exe_RC_SRCS) \
@@ -540,7 +512,6 @@ RC_SRCS               = $(demo8_1_exe_RC_SRCS) \
 			$(demo8_8_exe_RC_SRCS) \
 			$(demo8_9_exe_RC_SRCS) \
 			$(t3dconsole_exe_RC_SRCS) \
-			$(t3dconsole2_exe_RC_SRCS) \
 			$(EXTRA_RC_SRCS)
 
 
@@ -662,7 +633,5 @@ $(t3dconsole_exe_MODULE): $(t3dconsole_exe_OBJS)
 	$(CXX) $(t3dconsole_exe_LDFLAGS) -o $@ $(t3dconsole_exe_OBJS) $(t3dconsole_exe_LIBRARY_PATH) $(DEFLIB) $(t3dconsole_exe_DLLS:%=-l%) $(t3dconsole_exe_LIBRARIES:%=-l%)
 
 
-$(t3dconsole2_exe_MODULE): $(t3dconsole2_exe_OBJS)
-	$(CXX) $(t3dconsole2_exe_LDFLAGS) -o $@ $(t3dconsole2_exe_OBJS) $(t3dconsole2_exe_LIBRARY_PATH) $(DEFLIB) $(t3dconsole2_exe_DLLS:%=-l%) $(t3dconsole2_exe_LIBRARIES:%=-l%)
 
 
